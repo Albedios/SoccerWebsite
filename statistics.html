@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics - Soccer Stats Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/statistics.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container">
+        <section class="stats-header">
+            <h1><i class="fas fa-chart-bar"></i> League Statistics</h1>
+            <div class="stats-filters">
+                <label for="season-select" class="sr-only">Select Season</label>
+                <select id="season-select" aria-label="Select Season">
+                    <option value="2024-25">2024/25</option>
+                    <option value="2023-24">2023/24</option>
+                    <option value="2022-23">2022/23</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="stats-overview">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <h3>Total Goals</h3>
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                    <div class="stat-value">1,064</div>
+                    <div class="stat-subtext">2.8 goals per match</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <h3>Clean Sheets</h3>
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="stat-value">98</div>
+                    <div class="stat-subtext">25.8% of matches</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <h3>Total Cards</h3>
+                        <i class="fas fa-square"></i>
+                    </div>
+                    <div class="stat-value">842</div>
+                    <div class="stat-subtext">2.2 cards per match</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <h3>Average Attendance</h3>
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-value">39,542</div>
+                    <div class="stat-subtext">89% capacity</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="charts-section">
+            <div class="chart-container">
+                <h2>Goals Distribution</h2>
+                <canvas id="goalsChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h2>Team Performance</h2>
+                <canvas id="performanceChart"></canvas>
+            </div>
+        </section>
+
+        <section class="records-section">
+            <h2>League Records</h2>
+            <div class="records-grid">
+                <div class="record-card">
+                    <div class="record-header">
+                        <h3>Most Goals in a Season</h3>
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="record-content">
+                        <div class="record-holder">
+                            <img src="https://via.placeholder.com/50" alt="Erling Haaland">
+                            <div class="record-info">
+                                <h4>Erling Haaland</h4>
+                                <p>36 Goals (2022/23)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="record-card">
+                    <div class="record-header">
+                        <h3>Most Assists in a Season</h3>
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <div class="record-content">
+                        <div class="record-holder">
+                            <img src="https://via.placeholder.com/50" alt="Kevin De Bruyne">
+                            <div class="record-info">
+                                <h4>Kevin De Bruyne</h4>
+                                <p>20 Assists (2019/20)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="historical-stats">
+            <h2>Historical Statistics</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Season</th>
+                            <th>Champion</th>
+                            <th>Top Scorer</th>
+                            <th>Most Assists</th>
+                            <th>Goals</th>
+                            <th>Cards</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historical-stats-tbody">
+                        <!-- Will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Load header and footer
+        fetch('components/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                document.querySelector('a[href="statistics.html"]').parentElement.classList.add('active');
+            });
+
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+    <script src="js/themes.js"></script>
+    <script src="js/statistics.js"></script>
+</body>
+</html>

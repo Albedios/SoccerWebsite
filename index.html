@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soccer Stats Hub - Premier League Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="dashboard">
+        <section class="hero-section">
+            <h1>
+                <i class="fas fa-trophy"></i>
+                Premier League Dashboard
+            </h1>
+            <p class="hero-subtitle">Your one-stop destination for Premier League statistics, matches, and team information</p>
+        </section>
+
+        <div class="dashboard-grid">
+            <!-- Quick Stats -->
+            <section class="dashboard-card quick-stats">
+                <h2><i class="fas fa-chart-line"></i> League Overview</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value">380</div>
+                        <div class="stat-label">Total Matches</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">20</div>
+                        <div class="stat-label">Teams</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">1,064</div>
+                        <div class="stat-label">Goals Scored</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">2.8</div>
+                        <div class="stat-label">Goals per Match</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Top Teams -->
+            <section class="dashboard-card top-teams">
+                <h2><i class="fas fa-shield-alt"></i> Top Teams</h2>
+                <div class="team-standings">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+                <a href="teams.html" class="view-all-btn">View All Teams <i class="fas fa-arrow-right"></i></a>
+            </section>
+
+            <!-- Upcoming Matches -->
+            <section class="dashboard-card upcoming-matches">
+                <h2><i class="fas fa-calendar"></i> Next Fixtures</h2>
+                <div class="matches-list">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+                <a href="matches.html" class="view-all-btn">View All Matches <i class="fas fa-arrow-right"></i></a>
+            </section>
+
+            <!-- Top Scorers -->
+            <section class="dashboard-card top-scorers">
+                <h2><i class="fas fa-futbol"></i> Top Scorers</h2>
+                <div class="scorers-list">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+                <a href="statistics.html" class="view-all-btn">View All Statistics <i class="fas fa-arrow-right"></i></a>
+            </section>
+        </div>
+
+        <!-- News Updates -->
+        <section class="news-section">
+            <h2><i class="fas fa-newspaper"></i> Latest Updates</h2>
+            <div class="news-grid">
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="https://via.placeholder.com/400x200" alt="Premier League news" loading="lazy">
+                    </div>
+                    <div class="news-content">
+                        <h3>Premier League Title Race Heats Up</h3>
+                        <p>Top teams battle for supremacy as the season enters its crucial phase...</p>
+                        <div class="news-meta">
+                            <span><i class="far fa-clock"></i> 2 hours ago</span>
+                            <a href="#" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                </article>
+                <!-- More news cards will be added dynamically -->
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // Load header and footer components
+        fetch('components/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                // Set active nav item
+                document.querySelector('a[href="index.html"]').parentElement.classList.add('active');
+                // Initialize theme toggle
+                initializeTheme();
+            });
+
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+    <script src="js/themes.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

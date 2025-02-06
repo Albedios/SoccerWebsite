@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leagues - Soccer Stats Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/leagues.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container">
+        <section class="leagues-header">
+            <h1><i class="fas fa-trophy"></i> Leagues</h1>
+            <div class="leagues-filters">
+                <label for="country-filter" class="sr-only">Filter by country</label>
+                <select id="country-filter" aria-label="Filter by country">
+                    <option value="">All Countries</option>
+                    <option value="england">England</option>
+                    <option value="spain">Spain</option>
+                    <option value="germany">Germany</option>
+                    <option value="italy">Italy</option>
+                    <option value="france">France</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="featured-league">
+            <div class="league-banner">
+                <img src="https://via.placeholder.com/1200x300" alt="Premier League Banner" class="league-banner-img">
+                <div class="league-info">
+                    <img src="https://via.placeholder.com/100" alt="Premier League Logo" class="league-logo">
+                    <div class="league-details">
+                        <h2>Premier League</h2>
+                        <p>England</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="league-stats">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <h3>Teams</h3>
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="stat-value">20</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <h3>Players</h3>
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-value">589</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <h3>Goals</h3>
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                    <div class="stat-value">1,064</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <h3>Matches</h3>
+                        <i class="fas fa-stopwatch"></i>
+                    </div>
+                    <div class="stat-value">380</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="leagues-grid">
+            <div class="league-section">
+                <h2>Top Leagues</h2>
+                <div class="leagues-cards" id="top-leagues">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <div class="league-section">
+                <h2>European Competitions</h2>
+                <div class="leagues-cards" id="european-competitions">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <div class="league-section">
+                <h2>Other Leagues</h2>
+                <div class="leagues-cards" id="other-leagues">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // Load header and footer
+        fetch('components/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                document.querySelector('a[href="leagues.html"]').parentElement.classList.add('active');
+            });
+
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+    <script src="js/themes.js"></script>
+    <script src="js/leagues.js"></script>
+</body>
+</html>

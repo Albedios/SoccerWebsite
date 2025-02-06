@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Players - Soccer Stats Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/players.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container">
+        <section class="players-header">
+            <h1><i class="fas fa-users"></i> Players</h1>
+            <div class="filters">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="player-search" placeholder="Search players...">
+                </div>
+                <div class="filter-group">
+                    <label for="team-filter" class="sr-only">Filter by team</label>
+                    <select id="team-filter" aria-label="Filter by team">
+                        <option value="">All Teams</option>
+                        <!-- Teams will be populated by JavaScript -->
+                    </select>
+                    
+                    <label for="position-filter" class="sr-only">Filter by position</label>
+                    <select id="position-filter" aria-label="Filter by position">
+                        <option value="">All Positions</option>
+                        <option value="Forward">Forwards</option>
+                        <option value="Midfielder">Midfielders</option>
+                        <option value="Defender">Defenders</option>
+                        <option value="Goalkeeper">Goalkeepers</option>
+                    </select>
+                    
+                    <label for="stat-sort" class="sr-only">Sort by statistic</label>
+                    <select id="stat-sort" aria-label="Sort by statistic">
+                        <option value="goals">Goals</option>
+                        <option value="assists">Assists</option>
+                        <option value="minutes">Minutes Played</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <section class="top-performers">
+            <h2>Top Performers</h2>
+            <div class="performers-grid">
+                <div class="performer-card">
+                    <div class="performer-header">
+                        <h3>Top Scorer</h3>
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                    <div class="performer-content">
+                        <img src="https://via.placeholder.com/100" alt="Erling Haaland" class="player-photo">
+                        <div class="performer-info">
+                            <h4>Erling Haaland</h4>
+                            <p class="team">Manchester City</p>
+                            <p class="stat">28 Goals</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="performer-card">
+                    <div class="performer-header">
+                        <h3>Top Assists</h3>
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <div class="performer-content">
+                        <img src="https://via.placeholder.com/100" alt="Mohamed Salah" class="player-photo">
+                        <div class="performer-info">
+                            <h4>Mohamed Salah</h4>
+                            <p class="team">Liverpool</p>
+                            <p class="stat">15 Assists</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="performer-card">
+                    <div class="performer-header">
+                        <h3>Most Clean Sheets</h3>
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="performer-content">
+                        <img src="https://via.placeholder.com/100" alt="Ederson" class="player-photo">
+                        <div class="performer-info">
+                            <h4>Ederson</h4>
+                            <p class="team">Manchester City</p>
+                            <p class="stat">12 Clean Sheets</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="players-table">
+            <h2>All Players</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Player</th>
+                            <th>Team</th>
+                            <th>Position</th>
+                            <th>Age</th>
+                            <th>Games</th>
+                            <th>Goals</th>
+                            <th>Assists</th>
+                            <th>Clean Sheets</th>
+                            <th>Yellow Cards</th>
+                            <th>Red Cards</th>
+                        </tr>
+                    </thead>
+                    <tbody id="players-tbody">
+                        <!-- Players will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // Load header and footer
+        fetch('components/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                document.querySelector('a[href="players.html"]').parentElement.classList.add('active');
+            });
+
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+    <script src="js/themes.js"></script>
+    <script src="js/players.js"></script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+:root {
+    /* Light theme (default) */
+    --bg-gradient: linear-gradient(120deg, #f8f9fa 0%, #e9ecef 100%);
+    --surface-gradient: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --text-color: #2c3e50;
+    --text-secondary: #6c757d;
+    --surface-color: #ffffff;
+    --border-color: #dee2e6;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --hover-color: rgba(52, 152, 219, 0.1);
+}
+
+[data-theme="dark"] {
+    --bg-gradient: linear-gradient(120deg, #1a1a1a 0%, #2c3e50 100%);
+    --surface-gradient: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --accent-color: #e74c3c;
+    --text-color: #ecf0f1;
+    --text-secondary: #95a5a6;
+    --surface-color: #34495e;
+    --border-color: #4a5568;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --hover-color: rgba(52, 152, 219, 0.2);
+}
+
+/* Theme transition */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Gradient backgrounds */
+body {
+    background: var(--bg-gradient);
+    color: var(--text-color);
+    min-height: 100vh;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--surface-gradient);
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    z-index: 1000;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+.theme-toggle i {
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+/* Navigation */
+.main-nav {
+    background: var(--surface-gradient);
+    padding: 1rem;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    margin-bottom: 2rem;
+}
+
+.nav-list {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-item a:hover {
+    background: var(--hover-color);
+}
+
+.nav-item.active a {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Cards */
+.card {
+    background: var(--surface-gradient);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    margin-bottom: 1rem;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+/* Tables */
+table {
+    background: var(--surface-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+th {
+    background: var(--surface-gradient);
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+td {
+    border-bottom: 1px solid var(--border-color);
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover td {
+    background: var(--hover-color);
+}
+
+/* Loading animation */
+@keyframes gradient-spin {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.loading {
+    background: linear-gradient(
+        270deg,
+        var(--primary-color),
+        var(--secondary-color),
+        var(--accent-color)
+    );
+    background-size: 200% 200%;
+    animation: gradient-spin 2s ease infinite;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .nav-list {
+        flex-direction: column;
+    }
+    
+    .nav-item a {
+        padding: 1rem;
+    }
+    
+    .theme-toggle {
+        top: auto;
+        bottom: 20px;
+    }
+}
